@@ -86,5 +86,6 @@ token: your_access_token
 ![Databricks Tables](./airbyte-databricks/images/batch-databricks-tables.png)
 
 </div>
+
 ---
 🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../00-data-source/batch/README.md) | [Next](../../02-data-transformation/batch/README.md)
