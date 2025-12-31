@@ -1,0 +1,14 @@
+database_name: Databricks
+sqlalchemy_uri: databricks://token:XXXXXXXXXX@dbc-609476cb-a703.cloud.databricks.com:443?catalog=analytics&http_path=%2Fsql%2F1.0%2Fwarehouses%2Fb1549b967a8f0dd1&schema=gold
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+impersonate_user: false
+uuid: 577b2576-bf94-4623-a040-870906f34be8
+version: 1.0.0

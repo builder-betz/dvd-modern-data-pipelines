@@ -1,0 +1,566 @@
+dashboard_title: DVD Rental Dashboard
+description: null
+css: ''
+slug: null
+certified_by: ''
+certification_details: ''
+published: true
+uuid: e3b77a5f-a5ea-4667-85ac-e501eabeed87
+position:
+  CHART-explore-76-1:
+    children: []
+    id: CHART-explore-76-1
+    meta:
+      chartId: 76
+      height: 58
+      sliceName: Most Popular Rented Film Categories
+      sliceNameOverride: Most Popular Rented Film Categories
+      uuid: da1fe618-7e57-43cc-8a9a-dce6a7f1ab76
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-ZFCUm6ceUmtav3Hvd-WO1
+    type: CHART
+  CHART-explore-77-1:
+    children: []
+    id: CHART-explore-77-1
+    meta:
+      chartId: 77
+      height: 55
+      sliceName: Rental Pattern Based on Day of the week
+      uuid: 3ca7a644-57cc-4cb2-9ce1-7678af6213cd
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-s6PIS-5ASMmOwVCEMONHh
+    type: CHART
+  CHART-explore-79-1:
+    children: []
+    id: CHART-explore-79-1
+    meta:
+      chartId: 79
+      height: 55
+      sliceName: Top Average Rental Duration by Country
+      sliceNameOverride: Top Average Rental Duration by Country
+      uuid: 32857121-c301-4cb3-8ec2-a68d631df3e4
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-s6PIS-5ASMmOwVCEMONHh
+    type: CHART
+  CHART-explore-90-1:
+    children: []
+    id: CHART-explore-90-1
+    meta:
+      chartId: 90
+      height: 55
+      sliceName: Rental Volume by Country
+      uuid: af374fe3-d8fc-4e22-bbda-b139cbb7e9b7
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-s6PIS-5ASMmOwVCEMONHh
+    type: CHART
+  CHART-explore-91-1:
+    children: []
+    id: CHART-explore-91-1
+    meta:
+      chartId: 91
+      height: 58
+      sliceName: Most Popular Rented Films
+      uuid: 6aa7d464-7a7a-4787-a7a4-6b37fda25187
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-ZFCUm6ceUmtav3Hvd-WO1
+    type: CHART
+  CHART-explore-92-1:
+    children: []
+    id: CHART-explore-92-1
+    meta:
+      chartId: 92
+      height: 58
+      sliceName: Rented Films
+      uuid: 672a713e-6e0c-45d1-b88f-7f22be6c2ddd
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-ZFCUm6ceUmtav3Hvd-WO1
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-ZFCUm6ceUmtav3Hvd-WO1
+    - ROW-s6PIS-5ASMmOwVCEMONHh
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: DVD Rental Dashboard
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-ZFCUm6ceUmtav3Hvd-WO1:
+    children:
+    - CHART-explore-76-1
+    - CHART-explore-91-1
+    - CHART-explore-92-1
+    id: ROW-ZFCUm6ceUmtav3Hvd-WO1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-s6PIS-5ASMmOwVCEMONHh:
+    children:
+    - CHART-explore-77-1
+    - CHART-explore-79-1
+    - CHART-explore-90-1
+    id: ROW-s6PIS-5ASMmOwVCEMONHh
+    meta:
+      '0': ROOT_ID
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+metadata:
+  chart_configuration:
+    '76':
+      id: 76
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 77
+        - 79
+        - 90
+        - 91
+        - 92
+    '79':
+      id: 79
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 76
+        - 77
+        - 90
+        - 91
+        - 92
+    '90':
+      id: 90
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 76
+        - 77
+        - 79
+        - 91
+        - 92
+    '91':
+      id: 91
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 76
+        - 77
+        - 79
+        - 90
+        - 92
+  global_chart_configuration:
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded: []
+    chartsInScope:
+    - 76
+    - 77
+    - 79
+    - 90
+    - 91
+    - 92
+  color_scheme: supersetAndPresetColors
+  refresh_frequency: 0
+  expanded_slices: {}
+  label_colors: {}
+  timed_refresh_immune_slices: []
+  cross_filters_enabled: true
+  native_filter_configuration: []
+  default_filters: '{}'
+  color_scheme_domain:
+  - '#004960'
+  - '#2893B3'
+  - '#20A7C9'
+  - '#5CC0DA'
+  - '#7DCDE1'
+  - '#A9D3E1'
+  - '#C6ECE1'
+  - '#AAE2D2'
+  - '#71CFB4'
+  - '#2FC096'
+  - '#178F7A'
+  - '#067162'
+  shared_label_colors:
+  - Apache Divine
+  - Bucket Brotherhood
+  - Forward Temple
+  - Grit Clockwork
+  - Juggler Hardly
+  - Ridgemont Submarine
+  - Robbers Joon
+  - Rocketeer Mother
+  - Scalawag Duck
+  - Wife Turn
+  map_label_colors:
+    Sleuth Orient: '#004960'
+    English Bulworth: '#2893B3'
+    Forward Temple: '#20A7C9'
+    Island Exorcist: '#5CC0DA'
+    Show Lord: '#7DCDE1'
+    Boogie Amelie: '#A9D3E1'
+    Handicap Boondock: '#C6ECE1'
+    Hanky October: '#AAE2D2'
+    Peak Forever: '#71CFB4'
+    Pulp Beverly: '#2FC096'
+    Bucket Brotherhood: '#178F7A'
+    Rocketeer Mother: '#067162'
+    Grit Clockwork: '#2893B3'
+    Scalawag Duck: '#20A7C9'
+    Apache Divine: '#5CC0DA'
+    Juggler Hardly: '#7DCDE1'
+    Ridgemont Submarine: '#A9D3E1'
+    Robbers Joon: '#C6ECE1'
+    Wife Turn: '#AAE2D2'
+    Nepal: '#004960'
+    Greenland: '#2893B3'
+    Turkmenistan: '#20A7C9'
+    French Guiana: '#5CC0DA'
+    Iraq: '#7DCDE1'
+    Bangladesh: '#A9D3E1'
+    Gambia: '#C6ECE1'
+    Ethiopia: '#AAE2D2'
+    Tuvalu: '#71CFB4'
+    Chile: '#2FC096'
+    Sports: '#004960'
+    Animation: '#2893B3'
+    Action: '#20A7C9'
+    Sci-Fi: '#5CC0DA'
+    Family: '#7DCDE1'
+    Drama: '#A9D3E1'
+    Documentary: '#C6ECE1'
+    Foreign: '#AAE2D2'
+    Games: '#71CFB4'
+    Children: '#2FC096'
+    Hobbit Alien: '#004960'
+    Network Peak: '#C6ECE1'
+    Rush Goodfellas: '#AAE2D2'
+    Goodfellas Salute: '#71CFB4'
+    Timberland Sky: '#2FC096'
+    Zorro Ark: '#A9D3E1'
+    Harry Idaho: '#004960'
+    Muscle Bright: '#2893B3'
+    Married Go: '#71CFB4'
+    Shock Cabin: '#5CC0DA'
+    Butterfly Chocolat: '#7DCDE1'
+    Rugrats Shakespeare: '#067162'
+    Witches Panic: '#004960'
+    Suspects Quills: '#2893B3'
+    Cat Coneheads: '#20A7C9'
+    Frost Head: '#5CC0DA'
+    Dogma Family: '#7DCDE1'
+    Idols Snatchers: '#A9D3E1'
+    Massacre Usual: '#C6ECE1'
+    Graffiti Love: '#AAE2D2'
+    Deer Virginian: '#71CFB4'
+    Titans Jerk: '#2FC096'
+    Family Sweet: '#067162'
+    Bingo Talented: '#067162'
+    Virginian Pluto: '#004960'
+    Confidential Interview: '#20A7C9'
+    Videotape Arsenic: '#5CC0DA'
+    Talented Homicide: '#7DCDE1'
+    Greatest North: '#C6ECE1'
+    Enemy Odds: '#AAE2D2'
+    Sweethearts Suspects: '#71CFB4'
+    Moon Bunch: '#2FC096'
+    Storm Happiness: '#71CFB4'
+    Gleaming Jawbreaker: '#2FC096'
+    Giant Troopers: '#004960'
+    Roses Treasure: '#067162'
+    Expendable Stallion: '#2893B3'
+    Closer Bang: '#20A7C9'
+    Voyage Legally: '#5CC0DA'
+    Saturday Lambs: '#7DCDE1'
+    Trip Newton: '#A9D3E1'
+    Story Side: '#C6ECE1'
+    Fatal Haunted: '#AAE2D2'
+    Gilmore Boiled: '#AAE2D2'
+    Forrester Comancheros: '#71CFB4'
+    Wardrobe Phantom: '#2FC096'
+    Invasion Cyclone: '#004960'
+    Torque Bound: '#067162'
+    Swarm Gold: '#2893B3'
+    Telegraph Voyage: '#20A7C9'
+    Goldmine Tycoon: '#5CC0DA'
+    Dorado Notting: '#7DCDE1'
+    Curtain Videotape: '#A9D3E1'
+    Loathing Legally: '#A9D3E1'
+    Primary Glass: '#C6ECE1'
+    Camelot Vacation: '#AAE2D2'
+    Blackout Private: '#71CFB4'
+    Spy Mile: '#2FC096'
+    Chance Resurrection: '#004960'
+    None Spiking: '#067162'
+    Range Moonwalker: '#2893B3'
+    Lies Treatment: '#20A7C9'
+    Gangs Pride: '#5CC0DA'
+    Horror Reign: '#7DCDE1'
+    Dancing Fever: '#7DCDE1'
+    Lose Inch: '#A9D3E1'
+    Hyde Doctor: '#C6ECE1'
+    Coma Head: '#AAE2D2'
+    Half Outfield: '#71CFB4'
+    Fellowship Autumn: '#2FC096'
+    Durham Panky: '#004960'
+    Tracy Cider: '#067162'
+    Pity Bound: '#2893B3'
+    Alaska Phantom: '#20A7C9'
+    Pocus Pulp: '#5CC0DA'
+    Gun Bonnie: '#5CC0DA'
+    Fish Opus: '#7DCDE1'
+    Oscar Gold: '#A9D3E1'
+    Lola Agent: '#C6ECE1'
+    Jason Trap: '#004960'
+    Oz Liaisons: '#71CFB4'
+    Yentl Idaho: '#2FC096'
+    Sea Virgin: '#2893B3'
+    Alter Victory: '#067162'
+    Angels Life: '#20A7C9'
+    Grapes Fury: '#2893B3'
+    South Wait: '#20A7C9'
+    Cause Date: '#5CC0DA'
+    Basic Easy: '#004960'
+    Wait Cider: '#A9D3E1'
+    Egg Igby: '#C6ECE1'
+    Go Purple: '#AAE2D2'
+    Love Suicides: '#71CFB4'
+    Million Ace: '#2FC096'
+    Bill Others: '#067162'
+    Dawn Pond: '#067162'
+    Taxi Kick: '#004960'
+    Perfect Groove: '#2893B3'
+    Noon Papi: '#20A7C9'
+    Lock Rear: '#5CC0DA'
+    Dirty Ace: '#7DCDE1'
+    Illusion Amelie: '#A9D3E1'
+    Donnie Alley: '#C6ECE1'
+    Connecticut Tramp: '#AAE2D2'
+    Raging Airplane: '#71CFB4'
+    Sassy Packer: '#2FC096'
+    Identity Lover: '#004960'
+    Party Knock: '#067162'
+    Bilko Anonymous: '#2893B3'
+    Pittsburgh Hunchback: '#20A7C9'
+    Lost Bird: '#5CC0DA'
+    Side Ark: '#7DCDE1'
+    Born Spinal: '#A9D3E1'
+    War Notting: '#C6ECE1'
+    Song Hedwig: '#AAE2D2'
+    Stone Fire: '#71CFB4'
+    Rider Caddyshack: '#2FC096'
+    Reef Salute: '#2FC096'
+    Opus Ice: '#004960'
+    North Tequila: '#067162'
+    Santa Paris: '#2893B3'
+    Fiddler Lost: '#20A7C9'
+    Diary Panic: '#5CC0DA'
+    Guys Falcon: '#7DCDE1'
+    Holy Tadpole: '#A9D3E1'
+    Reds Pocus: '#C6ECE1'
+    Speed Suit: '#AAE2D2'
+    Random Go: '#71CFB4'
+    Nuts Ties: '#71CFB4'
+    Won Dares: '#2FC096'
+    Dwarfs Alter: '#004960'
+    Chitty Lock: '#067162'
+    Shining Roses: '#2893B3'
+    Saints Bride: '#20A7C9'
+    Park Citizen: '#5CC0DA'
+    Baby Hall: '#7DCDE1'
+    Lights Deer: '#A9D3E1'
+    Squad Fish: '#C6ECE1'
+    Fire Wolves: '#AAE2D2'
+    Panic Club: '#AAE2D2'
+    Bang Kwai: '#71CFB4'
+    Tequila Past: '#2FC096'
+    Simon North: '#004960'
+    Dumbo Lust: '#067162'
+    Japanese Run: '#2893B3'
+    Youth Kick: '#20A7C9'
+    Sling Luke: '#5CC0DA'
+    Duck Racer: '#7DCDE1'
+    Wild Apollo: '#A9D3E1'
+    Bunch Minds: '#C6ECE1'
+    Fever Empire: '#C6ECE1'
+    Full Flatliners: '#AAE2D2'
+    Informer Double: '#71CFB4'
+    Private Drop: '#2FC096'
+    Seven Swarm: '#004960'
+    Train Bunch: '#067162'
+    Hardly Robbers: '#2893B3'
+    Movie Shakespeare: '#20A7C9'
+    Detective Vision: '#5CC0DA'
+    Princess Giant: '#7DCDE1'
+    Innocent Usual: '#A9D3E1'
+    Malkovich Pet: '#A9D3E1'
+    Feud Frogmen: '#C6ECE1'
+    Slums Duck: '#AAE2D2'
+    Earth Vision: '#71CFB4'
+    Chill Luck: '#2FC096'
+    Falcon Volume: '#004960'
+    Harper Dying: '#067162'
+    Garden Island: '#2893B3'
+    Encino Elf: '#20A7C9'
+    Road Roxanne: '#5CC0DA'
+    Inch Jet: '#7DCDE1'
+    Core Suit: '#7DCDE1'
+    Forrest Sons: '#A9D3E1'
+    Mask Peach: '#C6ECE1'
+    Teen Apollo: '#AAE2D2'
+    Trap Guys: '#004960'
+    Lust Lock: '#2FC096'
+    Model Fish: '#2893B3'
+    Town Ark: '#067162'
+    Turn Star: '#20A7C9'
+    Mile Mulan: '#5CC0DA'
+    Breaking Home: '#20A7C9'
+    Spinal Rocky: '#5CC0DA'
+    Lawrence Love: '#7DCDE1'
+    Flash Wars: '#A9D3E1'
+    Moonwalker Fool: '#C6ECE1'
+    Mulan Moon: '#AAE2D2'
+    Crow Grease: '#71CFB4'
+    Flight Lies: '#2FC096'
+    Lord Arizona: '#004960'
+    Iron Moon: '#067162'
+    Run Pacific: '#2893B3'
+    Ali Forever: '#2893B3'
+    Spartacus Cheaper: '#20A7C9'
+    Legend Jedi: '#5CC0DA'
+    Anything Savannah: '#7DCDE1'
+    Runner Madigan: '#A9D3E1'
+    Desire Alien: '#C6ECE1'
+    Vision Torque: '#AAE2D2'
+    Early Home: '#71CFB4'
+    Hawk Chill: '#2FC096'
+    Doctor Grail: '#004960'
+    Heavenly Gun: '#067162'
+    Texas Watch: '#004960'
+    Warlock Werewolf: '#2893B3'
+    Frontier Cabin: '#20A7C9'
+    Traffic Hobbit: '#5CC0DA'
+    Hunter Alter: '#7DCDE1'
+    Mixed Doors: '#A9D3E1'
+    Rage Games: '#C6ECE1'
+    United Pilot: '#AAE2D2'
+    Quills Bull: '#71CFB4'
+    Pride Alamo: '#2FC096'
+    Rocky War: '#067162'
+    Madison Trap: '#067162'
+    Sierra Divide: '#004960'
+    Lovely Jingle: '#2893B3'
+    Stock Glass: '#20A7C9'
+    Mighty Luck: '#5CC0DA'
+    Bugsy Song: '#7DCDE1'
+    Frida Slipper: '#A9D3E1'
+    Lolita World: '#C6ECE1'
+    Dolls Rage: '#AAE2D2'
+    Clue Grail: '#71CFB4'
+    Elf Murder: '#2FC096'
+    Braveheart Human: '#004960'
+    Glory Tracy: '#067162'
+    Hills Neighbors: '#2893B3'
+    Clash Freddy: '#20A7C9'
+    Truman Crazy: '#5CC0DA'
+    American Circus: '#7DCDE1'
+    Annie Identity: '#A9D3E1'
+    Kiss Glory: '#C6ECE1'
+    Suit Walls: '#AAE2D2'
+    National Story: '#71CFB4'
+    Alone Trip: '#2FC096'
+    Lion Uncut: '#2FC096'
+    Jade Bunch: '#004960'
+    Hunger Roof: '#067162'
+    Darkness War: '#2893B3'
+    Magnolia Forrester: '#20A7C9'
+    Lover Truman: '#5CC0DA'
+    Luck Opus: '#7DCDE1'
+    Wars Pluto: '#A9D3E1'
+    Drop Waterfront: '#C6ECE1'
+    Vertigo Northwest: '#AAE2D2'
+    Records Zorro: '#71CFB4'
+    Godfather Diary: '#71CFB4'
+    Punk Divorce: '#2FC096'
+    Luke Mummy: '#004960'
+    Newsies Story: '#067162'
+    Dozen Lion: '#2893B3'
+    Bed Highball: '#20A7C9'
+    Haunted Antitrust: '#5CC0DA'
+    Fargo Gandhi: '#7DCDE1'
+    Steel Santa: '#A9D3E1'
+    Karate Moon: '#C6ECE1'
+    Blues Instinct: '#AAE2D2'
+    Shawshank Bubble: '#AAE2D2'
+    Mars Roman: '#71CFB4'
+    Fury Murder: '#2FC096'
+    Wonka Sea: '#004960'
+    Idaho Love: '#067162'
+    Attacks Hate: '#2893B3'
+    Rules Human: '#20A7C9'
+    Silence Kane: '#5CC0DA'
+    West Lion: '#7DCDE1'
+    Nemo Campus: '#A9D3E1'
+    Gold River: '#C6ECE1'
+    Home Pity: '#C6ECE1'
+    Tuxedo Mile: '#AAE2D2'
+    Exorcist Sting: '#71CFB4'
+    Evolution Alter: '#2FC096'
+    Autumn Crow: '#004960'
+    Feathers Metal: '#067162'
+    Gilbert Pelican: '#2893B3'
+    Crazy Home: '#20A7C9'
+    Impact Aladdin: '#5CC0DA'
+    Maude Mod: '#7DCDE1'
+    Unfaithful Kill: '#A9D3E1'
+    Jersey Sassy: '#A9D3E1'
+    Double Wrath: '#004960'
+    Others Soup: '#20A7C9'
+    Beverly Outlaw: '#AAE2D2'
+    Sting Personal: '#71CFB4'
+    Stepmom Dream: '#20A7C9'
+    Roxanne Rebel: '#71CFB4'
+    Mine Titans: '#004960'
+    Heaven Freedom: '#5CC0DA'
+    African Egg: '#71CFB4'
+    Paths Control: '#2893B3'
+    Gone Trouble: '#20A7C9'
+    Jungle Closer: '#AAE2D2'
+    Vanilla Day: '#067162'
+    Dares Pluto: '#20A7C9'
+    Pet Haunting: '#C6ECE1'
+    Rebel Airport: '#067162'
+    Soup Wisdom: '#2893B3'
+    Italian African: '#20A7C9'
+version: 1.0.0

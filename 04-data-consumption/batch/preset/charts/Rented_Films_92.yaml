@@ -1,0 +1,37 @@
+slice_name: Rented Films
+description: null
+certified_by: null
+certification_details: null
+viz_type: word_cloud
+params:
+  datasource: 32__table
+  viz_type: word_cloud
+  series: title
+  metric: count
+  adhoc_filters:
+  - expressionType: SIMPLE
+    subject: rental_date
+    operator: TEMPORAL_RANGE
+    comparator: No filter
+    clause: WHERE
+    sqlExpression: null
+    isExtra: false
+    isNew: false
+    datasourceWarning: false
+    filterOptionName: filter_2wfoh36fgvu_nked6djinl
+  row_limit: 5000
+  sort_by_metric: true
+  size_from: 10
+  size_to: 70
+  rotation: square
+  color_scheme: supersetColors
+  extra_form_data: {}
+  dashboards:
+  - 13
+query_context: '{"datasource":{"id":32,"type":"table"},"force":false,"queries":[{"filters":[{"col":"rental_date","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["title"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":5000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"32__table","viz_type":"word_cloud","series":"title","metric":"count","adhoc_filters":[{"expressionType":"SIMPLE","subject":"rental_date","operator":"TEMPORAL_RANGE","comparator":"No
+  filter","clause":"WHERE","sqlExpression":null,"isExtra":false,"isNew":false,"datasourceWarning":false,"filterOptionName":"filter_2wfoh36fgvu_nked6djinl"}],"row_limit":5000,"sort_by_metric":true,"size_from":10,"size_to":70,"rotation":"square","color_scheme":"supersetColors","extra_form_data":{},"dashboards":[13],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 672a713e-6e0c-45d1-b88f-7f22be6c2ddd
+version: 1.0.0
+dataset_uuid: d46fb88b-e9b4-4b00-bf22-e94a917eb220

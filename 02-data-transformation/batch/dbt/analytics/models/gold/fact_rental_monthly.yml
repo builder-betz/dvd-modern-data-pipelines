@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fact_rental_monthly
+    columns:
+      - name: rental_monthly_key
+        description: The surrogate key of the rental_monthly
+        tests:
+          - not_null
+          - unique
+      - name: film_key
+        description: The surrogate key to the film

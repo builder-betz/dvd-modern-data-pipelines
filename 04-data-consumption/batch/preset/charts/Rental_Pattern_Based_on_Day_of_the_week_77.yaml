@@ -1,0 +1,44 @@
+slice_name: Rental Pattern Based on Day of the week
+description: null
+certified_by: null
+certification_details: null
+viz_type: heatmap_v2
+params:
+  datasource: 32__table
+  viz_type: heatmap_v2
+  slice_id: 77
+  x_axis: category_name
+  groupby: rental_date_day_of_week_name
+  metric: count
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: rental_date
+  row_limit: 10000
+  sort_y_axis: value_desc
+  normalize_across: heatmap
+  legend_type: continuous
+  linear_color_scheme: superset_seq_1
+  xscale_interval: -1
+  yscale_interval: -1
+  left_margin: auto
+  bottom_margin: auto
+  value_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  x_axis_time_format: smart_date
+  show_legend: true
+  show_percentage: true
+  extra_form_data: {}
+  dashboards:
+  - 13
+query_context: '{"datasource":{"id":32,"type":"table"},"force":false,"queries":[{"filters":[{"col":"rental_date","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":[{"columnType":"BASE_AXIS","sqlExpression":"category_name","label":"category_name","expressionType":"SQL"},"rental_date_day_of_week_name"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":10000,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[{"operation":"rank","options":{"metric":"count"}}]}],"form_data":{"datasource":"32__table","viz_type":"heatmap_v2","slice_id":77,"x_axis":"category_name","groupby":"rental_date_day_of_week_name","metric":"count","adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"rental_date"}],"row_limit":10000,"sort_y_axis":"value_desc","normalize_across":"heatmap","legend_type":"continuous","linear_color_scheme":"superset_seq_1","xscale_interval":-1,"yscale_interval":-1,"left_margin":"auto","bottom_margin":"auto","value_bounds":[null,null],"y_axis_format":"SMART_NUMBER","x_axis_time_format":"smart_date","show_legend":true,"show_percentage":true,"extra_form_data":{},"dashboards":[13],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 3ca7a644-57cc-4cb2-9ce1-7678af6213cd
+version: 1.0.0
+dataset_uuid: d46fb88b-e9b4-4b00-bf22-e94a917eb220
