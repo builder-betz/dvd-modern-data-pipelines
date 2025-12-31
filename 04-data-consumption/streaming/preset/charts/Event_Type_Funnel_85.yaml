@@ -1,0 +1,38 @@
+slice_name: Event Type Funnel
+description: null
+certified_by: null
+certification_details: null
+viz_type: funnel
+params:
+  datasource: 37__table
+  viz_type: funnel
+  slice_id: 85
+  groupby:
+  - event_type
+  metric: count
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: event_ts
+  row_limit: 10
+  sort_by_metric: true
+  percent_calculation_type: first_step
+  color_scheme: supersetColors
+  show_legend: true
+  legendOrientation: right
+  tooltip_label_type: 5
+  number_format: SMART_NUMBER
+  show_labels: true
+  show_tooltip_labels: true
+  extra_form_data: {}
+  dashboards:
+  - 9
+query_context: '{"datasource":{"id":37,"type":"table"},"force":false,"queries":[{"filters":[{"col":"event_ts","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["event_type"],"metrics":["count"],"orderby":[["count",false]],"annotation_layers":[],"row_limit":10,"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{}}],"form_data":{"datasource":"37__table","viz_type":"funnel","slice_id":85,"groupby":["event_type"],"metric":"count","adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"event_ts"}],"row_limit":10,"sort_by_metric":true,"percent_calculation_type":"first_step","color_scheme":"supersetColors","show_legend":true,"legendOrientation":"right","tooltip_label_type":5,"number_format":"SMART_NUMBER","show_labels":true,"show_tooltip_labels":true,"extra_form_data":{},"dashboards":[9],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: d6c5ee5f-a93a-4f73-88a9-94d431aebb72
+version: 1.0.0
+dataset_uuid: cae40f90-eda2-4c7b-a7b5-d2d3975fb3fd

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dvd_address
+    tests:
+      - unique:
+          column_name: address_id
+      - not_null:
+          column_name: address_id
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: source('dvd_rental', 'raw_dvd_address')

@@ -1,0 +1,20 @@
+analytics:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: analytics
+      schema: ''
+      host: dbc-609476cb-a703.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/b1549b967a8f0dd1
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      threads: 2
+
+    preprod:
+      type: databricks
+      catalog: analytics
+      schema: ''
+      host: input_host
+      http_path: input_http_path
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      threads: 2

@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: report_rentals
+    columns:
+
+      - name: rental_id
+        description: The natural key of the rental event
+        tests:
+          - not_null
+          - unique
+
+     

@@ -1,0 +1,89 @@
+slice_name: Active Users
+description: null
+certified_by: null
+certification_details: null
+viz_type: echarts_timeseries_line
+params:
+  datasource: 37__table
+  viz_type: echarts_timeseries_line
+  slice_id: 86
+  x_axis: event_ts
+  time_grain_sqla: PT1M
+  metrics:
+  - aggregate: COUNT_DISTINCT
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: user_id
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 1014
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: STRING
+      type_generic: 1
+      uuid: e3f2f820-7e7b-4891-b606-51935f4be2fd
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: COUNT_DISTINCT(user_id)
+    optionName: metric_eq7ftv9hudg_b4rdl2ghgi6
+    sqlExpression: null
+  groupby: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_fwujaend0ok_j8mn5lll2m
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: event_ts
+  row_limit: 10000
+  truncate_metric: true
+  show_empty_columns: true
+  comparison_type: values
+  annotation_layers: []
+  forecastPeriods: 10
+  forecastInterval: 0.8
+  x_axis_title_margin: 15
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  sort_series_type: sum
+  color_scheme: supersetColors
+  time_shift_color: true
+  seriesType: line
+  only_total: true
+  opacity: 0.2
+  markerSize: 6
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  x_axis_time_format: smart_date
+  xAxisLabelInterval: auto
+  rich_tooltip: true
+  showTooltipTotal: true
+  tooltipTimeFormat: smart_date
+  y_axis_format: SMART_NUMBER
+  truncateXAxis: true
+  y_axis_bounds:
+  - null
+  - null
+  extra_form_data: {}
+  dashboards:
+  - 9
+query_context: '{"datasource":{"id":37,"type":"table"},"force":false,"queries":[{"filters":[{"col":"event_ts","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"time_grain_sqla":"PT1M","having":"","where":""},"applied_time_extras":{},"columns":[{"timeGrain":"PT1M","columnType":"BASE_AXIS","sqlExpression":"event_ts","label":"event_ts","expressionType":"SQL"}],"metrics":[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"user_id","description":null,"expression":null,"filterable":true,"groupby":true,"id":1014,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"STRING","type_generic":1,"uuid":"e3f2f820-7e7b-4891-b606-51935f4be2fd","verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"COUNT_DISTINCT(user_id)","optionName":"metric_eq7ftv9hudg_b4rdl2ghgi6","sqlExpression":null}],"orderby":[[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"user_id","description":null,"expression":null,"filterable":true,"groupby":true,"id":1014,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"STRING","type_generic":1,"uuid":"e3f2f820-7e7b-4891-b606-51935f4be2fd","verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"COUNT_DISTINCT(user_id)","optionName":"metric_eq7ftv9hudg_b4rdl2ghgi6","sqlExpression":null},false]],"annotation_layers":[],"row_limit":10000,"series_columns":[],"series_limit":0,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"time_offsets":[],"post_processing":[{"operation":"pivot","options":{"index":["event_ts"],"columns":[],"aggregates":{"COUNT_DISTINCT(user_id)":{"operator":"mean"}},"drop_missing_columns":false}},{"operation":"flatten"}]}],"form_data":{"datasource":"37__table","viz_type":"echarts_timeseries_line","slice_id":86,"x_axis":"event_ts","time_grain_sqla":"PT1M","metrics":[{"aggregate":"COUNT_DISTINCT","column":{"advanced_data_type":null,"certification_details":null,"certified_by":null,"column_name":"user_id","description":null,"expression":null,"filterable":true,"groupby":true,"id":1014,"is_certified":false,"is_dttm":false,"python_date_format":null,"type":"STRING","type_generic":1,"uuid":"e3f2f820-7e7b-4891-b606-51935f4be2fd","verbose_name":null,"warning_markdown":null},"datasourceWarning":false,"expressionType":"SIMPLE","hasCustomLabel":false,"label":"COUNT_DISTINCT(user_id)","optionName":"metric_eq7ftv9hudg_b4rdl2ghgi6","sqlExpression":null}],"groupby":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","datasourceWarning":false,"expressionType":"SIMPLE","filterOptionName":"filter_fwujaend0ok_j8mn5lll2m","isExtra":false,"isNew":false,"operator":"TEMPORAL_RANGE","sqlExpression":null,"subject":"event_ts"}],"row_limit":10000,"truncate_metric":true,"show_empty_columns":true,"comparison_type":"values","annotation_layers":[],"forecastPeriods":10,"forecastInterval":0.8,"x_axis_title_margin":15,"y_axis_title_margin":30,"y_axis_title_position":"Left","sort_series_type":"sum","color_scheme":"supersetColors","time_shift_color":true,"seriesType":"line","only_total":true,"opacity":0.2,"markerSize":6,"show_legend":true,"legendType":"scroll","legendOrientation":"top","x_axis_time_format":"smart_date","xAxisLabelInterval":"auto","rich_tooltip":true,"showTooltipTotal":true,"tooltipTimeFormat":"smart_date","y_axis_format":"SMART_NUMBER","truncateXAxis":true,"y_axis_bounds":[null,null],"extra_form_data":{},"dashboards":[9],"force":false,"result_format":"json","result_type":"full"},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: d47f9e37-7642-4863-95c4-d7734d7eea38
+version: 1.0.0
+dataset_uuid: cae40f90-eda2-4c7b-a7b5-d2d3975fb3fd

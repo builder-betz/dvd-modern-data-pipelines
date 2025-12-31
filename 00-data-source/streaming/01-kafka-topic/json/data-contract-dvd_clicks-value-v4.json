@@ -1,0 +1,12 @@
+{
+  "subject": "dvd_clicks-value",
+  "version": 4,
+  "id": 100024,
+  "schemaType": "JSON",
+  "metadata": {
+    "properties": {
+      "confluent:version": "4"
+    }
+  },
+  "schema": "{\"$id\":\"http://example.com/myURI.schema.json\",\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"description\":\"This schema has been created from JSON messages.\",\"properties\":{\"device\":{\"type\":\"string\"},\"event_id\":{\"type\":\"string\"},\"event_ts\":{\"format\":\"date-time\",\"type\":\"string\"},\"event_type\":{\"type\":\"string\"},\"film_id\":{\"type\":\"number\"},\"page\":{\"type\":\"string\"},\"position\":{\"type\":\"number\"},\"referrer\":{\"type\":\"string\"},\"session_id\":{\"type\":\"string\"},\"user_id\":{\"type\":\"string\"}},\"title\":\"SampleRecord\",\"type\":\"object\"}"
+}

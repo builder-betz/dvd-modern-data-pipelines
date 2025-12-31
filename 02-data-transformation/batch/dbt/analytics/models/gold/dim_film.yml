@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_film
+    columns:
+      - name: film_key
+        description: The surrogate key of the film
+        tests:
+          - unique
+          - not_null
+
+      - name: film_id
+        description: The natural key of the film
+        tests:
+          - not_null
+          - unique
+
+      - name: release_year
+        description: The release year of the film 
+
+      - name: length
+        description: The length of the film 
+
+      - name: rating
+        description: The rating of the film 
+
+      - name: rental_duration
+        description: The rental duration of the film 
+
+      - name: category_name
+        description: The category of the film 

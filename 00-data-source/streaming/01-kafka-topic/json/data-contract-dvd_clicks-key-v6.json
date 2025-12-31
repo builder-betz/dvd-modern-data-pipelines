@@ -1,0 +1,12 @@
+{
+  "subject": "dvd_clicks-key",
+  "version": 6,
+  "id": 100025,
+  "schemaType": "JSON",
+  "metadata": {
+    "properties": {
+      "confluent:version": "6"
+    }
+  },
+  "schema": "{\"$id\":\"http://example.com/myURI.schema.json\",\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"description\":\"This schema has been created from JSON messages.\",\"title\":\"SampleRecord\",\"type\":\"string\"}"
+}

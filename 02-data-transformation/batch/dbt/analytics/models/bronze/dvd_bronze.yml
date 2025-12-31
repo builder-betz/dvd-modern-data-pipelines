@@ -1,0 +1,118 @@
+version: 2
+
+sources:
+  - name: dvd_rental
+    database: analytics
+    schema: bronze
+    tables:
+      - name: raw_dvd_address
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: address_id
+          - not_null:
+              column_name: address_id
+
+      - name: raw_dvd_category
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: category_id
+          - not_null:
+              column_name: category_id
+
+      - name: raw_dvd_city
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: city_id
+          - not_null:
+              column_name: city_id
+
+      - name: raw_dvd_country
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: country_id
+          - not_null:
+              column_name: country_id
+
+      - name: raw_dvd_customer
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: customer_id
+          - not_null:
+              column_name: customer_id
+
+      - name: raw_dvd_film
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: film_id
+          - not_null:
+              column_name: film_id
+
+      - name: raw_dvd_film_category
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - not_null:
+              column_name: film_id
+          - not_null:
+              column_name: category_id
+
+      - name: raw_dvd_inventory
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: inventory_id
+          - not_null:
+              column_name: inventory_id
+
+      - name: raw_dvd_payment
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: payment_id
+          - not_null:
+              column_name: payment_id              
+
+      - name: raw_dvd_rental
+        loaded_at_field: _airbyte_extracted_at
+        freshness:
+          warn_after: { count: 1, period: day }
+          error_after: { count: 2, period: day }
+        tests:
+          - unique:
+              column_name: rental_id
+          - not_null:
+              column_name: rental_id
+
+

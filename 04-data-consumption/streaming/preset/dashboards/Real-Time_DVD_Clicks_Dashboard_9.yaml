@@ -1,0 +1,281 @@
+dashboard_title: Real-Time DVD Clicks Dashboard
+description: null
+css: ''
+slug: null
+certified_by: ''
+certification_details: ''
+published: true
+uuid: 0d4957e0-deaa-4d86-84d6-e11969249e0d
+position:
+  CHART-explore-82-1:
+    children: []
+    id: CHART-explore-82-1
+    meta:
+      chartId: 82
+      height: 55
+      sliceName: Clicks per minute
+      sliceNameOverride: Activity Trend
+      uuid: 0874136b-b4fe-489c-87c8-d2a6b76f3967
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3BKnvV4e5UPVaXFRg1F9J
+    type: CHART
+  CHART-explore-83-1:
+    children: []
+    id: CHART-explore-83-1
+    meta:
+      chartId: 83
+      height: 59
+      sliceName: Most Popular Films
+      sliceNameOverride: Most Popular Films
+      uuid: b6c83dc7-322a-4204-b9ce-ed14fe92ed30
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-bWjnzFiWzi7y1Bz7DGAMz
+    type: CHART
+  CHART-explore-85-1:
+    children: []
+    id: CHART-explore-85-1
+    meta:
+      chartId: 85
+      height: 55
+      sliceName: Event Type Funnel
+      uuid: d6c5ee5f-a93a-4f73-88a9-94d431aebb72
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3BKnvV4e5UPVaXFRg1F9J
+    type: CHART
+  CHART-explore-86-1:
+    children: []
+    id: CHART-explore-86-1
+    meta:
+      chartId: 86
+      height: 59
+      sliceName: Active Users
+      uuid: d47f9e37-7642-4863-95c4-d7734d7eea38
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-bWjnzFiWzi7y1Bz7DGAMz
+    type: CHART
+  CHART-explore-87-1:
+    children: []
+    id: CHART-explore-87-1
+    meta:
+      chartId: 87
+      height: 55
+      sliceName: Active Devices Activity Breakdown
+      uuid: 8430c0a1-b068-4fa9-a270-c6987ee41b76
+      width: 2
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3BKnvV4e5UPVaXFRg1F9J
+    type: CHART
+  CHART-explore-88-1:
+    children: []
+    id: CHART-explore-88-1
+    meta:
+      chartId: 88
+      height: 59
+      sliceName: Most Popular Film Categories
+      uuid: fb4f9045-8c8a-447c-9e28-5d50fd2ed29e
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-bWjnzFiWzi7y1Bz7DGAMz
+    type: CHART
+  CHART-explore-89-1:
+    children: []
+    id: CHART-explore-89-1
+    meta:
+      chartId: 89
+      height: 55
+      sliceName: User Activity by Device
+      uuid: acd8297f-d7c2-488c-812a-84a3dffff6be
+      width: 2
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3BKnvV4e5UPVaXFRg1F9J
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-bWjnzFiWzi7y1Bz7DGAMz
+    - ROW-3BKnvV4e5UPVaXFRg1F9J
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Real-Time DVD Clicks Dashboard
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-3BKnvV4e5UPVaXFRg1F9J:
+    children:
+    - CHART-explore-85-1
+    - CHART-explore-89-1
+    - CHART-explore-87-1
+    - CHART-explore-82-1
+    id: ROW-3BKnvV4e5UPVaXFRg1F9J
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-bWjnzFiWzi7y1Bz7DGAMz:
+    children:
+    - CHART-explore-88-1
+    - CHART-explore-83-1
+    - CHART-explore-86-1
+    id: ROW-bWjnzFiWzi7y1Bz7DGAMz
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+metadata:
+  chart_configuration:
+    '82':
+      id: 82
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 83
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+    '83':
+      id: 83
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 82
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+    '85':
+      id: 85
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 82
+        - 83
+        - 86
+        - 87
+        - 88
+        - 89
+    '86':
+      id: 86
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 82
+        - 83
+        - 85
+        - 87
+        - 88
+        - 89
+    '88':
+      id: 88
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 82
+        - 83
+        - 85
+        - 86
+        - 87
+        - 89
+    '89':
+      id: 89
+      crossFilters:
+        scope: global
+        chartsInScope:
+        - 82
+        - 83
+        - 85
+        - 86
+        - 87
+        - 88
+  global_chart_configuration:
+    scope:
+      rootPath:
+      - ROOT_ID
+      excluded: []
+    chartsInScope:
+    - 82
+    - 83
+    - 85
+    - 86
+    - 87
+    - 88
+    - 89
+  color_scheme: ''
+  refresh_frequency: 0
+  color_scheme_domain: []
+  expanded_slices: {}
+  label_colors: {}
+  shared_label_colors:
+  - add_to_watchlist
+  - detail_view
+  - mobile
+  - tablet
+  - view
+  - watch_trailer
+  - web
+  map_label_colors:
+    Doors President: '#004960'
+    Lebowski Soldiers: '#2893B3'
+    Past Suicides: '#20A7C9'
+    Trap Guys: '#5CC0DA'
+    Cranes Reservoir: '#7DCDE1'
+    Fool Mockingbird: '#A9D3E1'
+    Harry Idaho: '#C6ECE1'
+    Madison Trap: '#AAE2D2'
+    Splash Gump: '#71CFB4'
+    Wanda Chamber: '#2FC096'
+    COUNT_DISTINCT(user_id): '#1FA8C9'
+    mobile: '#1FA8C9'
+    view: '#1FA8C9'
+    web: '#454E7C'
+    tablet: '#5AC189'
+    detail_view: '#454E7C'
+    add_to_watchlist: '#FF7F44'
+    watch_trailer: '#5AC189'
+    Drama: '#2893B3'
+    Family: '#004960'
+    Documentary: '#5CC0DA'
+    Foreign: '#7DCDE1'
+    Sports: '#20A7C9'
+    Action: '#A9D3E1'
+    Animation: '#C6ECE1'
+    Comedy: '#AAE2D2'
+    Music: '#2FC096'
+    Sci-Fi: '#71CFB4'
+    count: '#1FA8C9'
+  timed_refresh_immune_slices: []
+  cross_filters_enabled: true
+  default_filters: '{}'
+version: 1.0.0

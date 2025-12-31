@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fact_rental
+    columns:
+      - name: rental_key
+        description: The surrogate key of the rental event
+        tests:
+          - not_null
+          - unique
+
+      - name: rental_id
+        description: The natural key of the rental event
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_key
+        description: Foreign key to dim_customer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+
+      - name: customer_address_key
+        description: The surrogate key of the customer address
+        tests:
+          - not_null
+
+      - name: film_key
+        description: The surrogate key of the film
+        tests:
+          - not_null
+
+      - name: rental_date
+        description: The rental date
+        tests:
+          - not_null
+ 
+      - name: return_date
+        description: Timestamp of the return event.
+
+      - name: rental_duration_days
+        description: The rental duration (difference between return_date and rental_date)
+        tests:
+          - not_null
+
+      - name: is_returned
+        description: Boolean if item has been returned
+        tests:
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              value_set: ['Y', 'N']
+              row_condition: "is_returned is not null"
