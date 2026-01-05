@@ -16,6 +16,7 @@
 - [Solution Architecture](#solution-architecture)
 - [Tech Stack](#tech-stack)
 - [Repository Structure and Navigation](#respository-structure-and-navigation)
+- [Demo](#demo)
 - [Lessons learned](#lessons-learned)
 - [Technical Debt and Improvement Opportunities](#technical-debt-and-improvement-opportunities)
 
@@ -37,7 +38,7 @@ It combines **batch analytics** (historical rentals, catalogue performance) with
 
 ## Consumers
 
-The primary consumers of this data platform are data analysts and business operations teams, who rely on both historical insights and real-time events to support reporting, monitoring, and decision-making.
+The primary consumers of this data platform are **data analysts** and **business operations teams**, who rely on both historical insights and real-time events to support reporting, monitoring, and decision-making.
 
 [🔝 Return to TOC](#table-of-contents)
 
@@ -46,7 +47,7 @@ The primary consumers of this data platform are data analysts and business opera
 How can we analyse **user behaviour and content trends** using both historical (batch) and real-time (streaming) data to enable informed, timely, and actionable insights? 
 <br/>
 <br/>
-*Detailed, pipeline-specific business questions are defined and addressed within the individual batch and streaming pipeline pages.*
+*Detailed, pipeline-specific business questions are defined and addressed within the individual [batch](./00-data-pipelines/batch/README.md#business-questions) and [streaming](./00-data-pipelines/streaming/README.md#business-questions) pipeline pages.*
 
 [🔝 Return to TOC](#table-of-contents)
 
@@ -58,7 +59,7 @@ The dashboards answer the business questions by visualising both historical and 
 
 - **Streaming dashboard** presents near-real-time activity and emerging behavioural patterns, with automatic 10-second refreshes for timely visibility into live user interactions.
 
-Detailed dashboards and chart breakdowns are available on the individual [batch](00-data-pipelines/batch/README.md) and [streaming](00-data-pipelines/streaming/README.md) pipeline pages.
+Detailed dashboards and chart breakdowns are available on the individual [batch](00-data-pipelines/batch/README.md#dashboard) and [streaming](00-data-pipelines/streaming/README.md#dashboard) pipeline pages.
 
 <br/>
 <br/>
@@ -81,7 +82,7 @@ Detailed dashboards and chart breakdowns are available on the individual [batch]
 | Source name | Source type | Source documentation | Frequency | 
 | - | - | - | - |
 | DVD Rentals database | PostgreSQL database | https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/ | Daily |
-| DVD Clicks (Synthetic) | Kafka Streaming Producer | [Synthetic Data](./00-data-source/streaming/README.md#clickstream-dataset) | Real-time | 
+| DVD Clicks (Synthetic) | Kafka Streaming Producer | [./00-data-source/streaming/README.md](./00-data-source/streaming/README.md#clickstream-dataset) | Real-time | 
 
 <br/>
 
@@ -91,19 +92,19 @@ Detailed dashboards and chart breakdowns are available on the individual [batch]
 
 This project uses a **hybrid batch–streaming architecture** to support both historical and real-time analytics.
 
-- The [**batch pipeline**](./batch/00-data-pipelines/batch/README.md) is optimised for reliable historical analysis and dimensional modelling, using **Databricks** for scalable processing and a lakehouse serving layer.
+- The [**batch pipeline**](./00-data-pipelines/batch/README.md#solution-architecture) is optimised for reliable historical analysis and dimensional modelling, using **Databricks** for scalable processing and a lakehouse serving layer.
 
-- The [**streaming pipeline**](./streaming/00-data-pipelines/streaming/README.md) is optimised for low-latency, near-real-time insights, using **ClickHouse** to support sub-second analytical queries.
+- The [**streaming pipeline**](./00-data-pipelines/streaming/README.md#solution-architecture) is optimised for low-latency, near-real-time insights, using **ClickHouse** to support sub-second analytical queries.
 
 The pipelines intersect at the serving layer, where curated reference and dimension tables from the lakehouse are shared with the streaming pipeline to enrich real-time events.
 
 <div align="center">
 
-![Architecture Diagram](./images/pipelines.gif)
+<![Architecture Diagram](./images/pipelines.gif)>
 
 </div>
 
-For detailed designs and implementation details, refer to the [Batch](./batch/00-data-pipelines/batch/README.md) and [Streaming](./streaming/00-data-pipelines/batch/README.md) pipeline pages.
+For detailed designs and implementation details, refer to the [Batch](./00-data-pipelines/batch/README.md#solution-architecture) and [Streaming](./00-data-pipelines/batch/README.md#solution-architecture) pipeline pages.
 
 [🔝 Return to TOC](#table-of-contents)
 
@@ -111,24 +112,26 @@ For detailed designs and implementation details, refer to the [Batch](./batch/00
 
 | Layer | Batch Pipeline | Streaming Pipeline |
 |:---|:---|:---|
-| **Data Source** | <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="24" height="24"> AWS RDS (PostgreSQL) | <img src="https://cdn.simpleicons.org/apachekafka/231F20" width="24" height="24"> Kafka (Confluent Cloud) |
-| **Ingestion** | <img src="https://cdn.simpleicons.org/airbyte/615EFF" width="24" height="24"> Airbyte | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickPipes (ClickHouse Cloud) |
 | **Event Producer** | - | <img src="https://cdn.simpleicons.org/python/3776AB" width="24" height="24"> Python (confluent-kafka >=2.3.0) |
-| **Data Warehouse** | <img src="https://cdn.simpleicons.org/databricks/FF3621" width="24" height="24"> Databricks (Unity Catalog) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Cloud |
-| **Transformation** | <img src="https://raw.githubusercontent.com/dbt-labs/dbt-core/main/core/dbt/include/global_project/dbt_logo.svg" width="24" height="24" alt="dbt"> dbt (dbt-core 1.10.4,<br/>dbt-databricks 1.10.4) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Materialized Views |
-| **Orchestration** | <img src="https://raw.githubusercontent.com/dagster-io/dagster/master/docs/next/public/images/dagster-logo.png" width="24" height="24" alt="Dagster"> Dagster+ (Dagster 1.12.7) | - |
-| **Visualization** | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset |
+| **Data Source** | <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="24" height="24"> PostgreSQL <br/><img src="https://icon.icepanel.io/AWS/svg/Database/RDS.svg" width="24" height="24"> AWS RDS (setup to host PostgreSQL) | <img src="https://cdn.simpleicons.org/apachekafka/231F20" width="24" height="24"> Kafka <br/> <img src="https://support.confluent.io/hc/theming_assets/01HZPGT7NKH0B17XZT3YGXHGF0" width="24" height="24"> Confluent Cloud (manages and runs Kafja) <br/> <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="24" height="24"> Amazon S3 (reference data)  |
+| **Data Ingestion** | <img src="https://cdn.simpleicons.org/airbyte/615EFF" width="24" height="24"> Airbyte  <br/> <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="24" height="24"> AWS EC2 (setup to host Airbyte)| <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickPipes (ClickHouse Cloud) |
+| **Data Warehouse** | <img src="https://cdn.simpleicons.org/databricks/FF3621" width="24" height="24"> Databricks <br/> <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="24" height="24"> Amazon S3 (external storage / reference data) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Cloud |
+| **Data Transformation** | <img src="https://www.iconarchive.com/download/i149529/simpleicons-team/simple/dbt.512.png" width="24" height="24" alt="dbt"> dbt (dbt-core 1.10.4,<br/>dbt-databricks 1.10.4) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Materialized Views |
+| **Data Orchestration** | <img src="https://dagster-website.vercel.app/images/brand/logos/dagster-primary-mark.png" width="24" height="24" alt="Dagster"> Dagster+ (Dagster 1.12.7) | - |
+| **Data Visualization** | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset |
 
 ### Development Tools
 
-<img src="https://cdn.simpleicons.org/python/3776AB" width="24" height="24"> **Python** 3.13+ | <img src="https://cdn.simpleicons.org/pypi/3775A9" width="24" height="24"> **pip** | <img src="https://cdn.simpleicons.org/anaconda/44A833" width="24" height="24"> **conda** | <img src="https://cdn.simpleicons.org/git/F05032" width="24" height="24"> **Git** | **VS Code**
+<img src="https://cdn.simpleicons.org/python/3776AB" width="24" height="24"> **Python** 3.13+ | <img src="https://cdn.simpleicons.org/pypi/3775A9" width="24" height="24"> **pip** | <img src="https://cdn.simpleicons.org/anaconda/44A833" width="24" height="24"> **conda** | <img src="https://cdn.simpleicons.org/git/F05032" width="24" height="24"> **Git** | <img src="https://img.icons8.com/color/48/visual-studio-code-2019.png" alt="visual-studio-code-2019" width="24" height="24"> **VS Code**
+
+<br/>
 
 [🔝 Return to TOC](#table-of-contents)
 
 ## Respository Structure and Navigation
 
 >**📍 Start Here**
->If you’re new to this repository, begin with the pipeline overviews in `00-data-pipelines` (for example, [00-data-pipelines/batch](./00-data-pipelines/batch/README.md) and [00-data-pipelines/streaming](./00-data-pipelines/streaming/README.md)). These pages provide a high-level view of the batch and streaming pipelines and guide you through the rest of the project. The remaining directories contain pipeline-specific artefacts and further details for each stage of the data lifecycle.
+>If you’re new to this repository, begin with the pipeline overviews in `00-data-pipelines` (for example, [00-data-pipelines/batch/README.md](./00-data-pipelines/batch/README.md) and [00-data-pipelines/streaming/README.md](./00-data-pipelines/streaming/README.md)). These pages provide a high-level view of the batch and streaming pipelines and guide you through the rest of the project. The remaining directories contain pipeline-specific artefacts and further details for each stage of the data lifecycle.
 
 ```
 .
@@ -142,6 +145,10 @@ For detailed designs and implementation details, refer to the [Batch](./batch/00
 ```
 
 [🔝 Return to TOC](#table-of-contents)
+
+## Demo
+
+This project includes two focused end-to-end demos: **[batch pipeline](./00-data-pipelines/batch/README.md#demo)** and **[streaming pipeline](./00-data-pipelines/streaming/README.md#demo)**
 
 
 ## Lessons Learned
@@ -166,7 +173,7 @@ For detailed designs and implementation details, refer to the [Batch](./batch/00
 
 - **Data Freshness & Loads**: Align snapshot frequencies with refresh schedules and introduce CDC or incremental loading where appropriate.
 
-- **Reliability & Quality**: Include further testing, logging, and monitoring—especially for streaming pipelines and ingestion tools.
+- **Reliability & Quality**: Include further testing, logging, and monitoring especially for streaming pipelines and ingestion tools.
 
 - **Deployment & Automation**: Introduce CI/CD, Terraform and containerised execution (for example, ECS for Kafka producers).
 
@@ -175,7 +182,11 @@ For detailed designs and implementation details, refer to the [Batch](./batch/00
 [🔝 Return to TOC](#table-of-contents)
 
 ---
-🔗 **Page Navigation**:  Main | [Batch](./00-data-pipelines/batch/README.md) | [Streaming](./00-data-pipelines/streaming/README.md) | Prev | [Next](./00-data-pipelines/batch/README.md)
+🔗 **Page Navigation**:  Main 
+| [Batch](./00-data-pipelines/batch/README.md) 
+| [Streaming](./00-data-pipelines/streaming/README.md) 
+| Prev 
+| [Next](./00-data-pipelines/batch/README.md)
 
 🔗 **Batch Pipeline Navigation**: 
 [Data Source](./00-data-source/batch/README.md)

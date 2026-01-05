@@ -45,6 +45,15 @@ The project is deployed on Dagster+ (Dagster Cloud) for production orchestration
 
 </div>
 
+## Environment Variables
+
+<div align="center">
+
+![Dagster Environment Variables](./dagster/images/batch-env-variables.png)
+
+</div>
+
+
 ## Runs
 
 <div align="center">
@@ -54,4 +63,16 @@ The project is deployed on Dagster+ (Dagster Cloud) for production orchestration
 </div>
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../02-data-transformation/batch/README.md) | [Next](../../04-data-consumption/batch/README.md)
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../00-data-pipelines/batch/README.md) 
+| [Streaming](../../00-data-pipelines/streaming/README.md) 
+| [Prev](../../02-data-transformation/batch/README.md) 
+| [Next](../../04-data-consumption/batch/README.md)
+
+🔗 **Batch Pipeline Navigation**: 
+[Data Source](../../00-data-source/batch/README.md)
+| [Data Ingestion](../../01-data-ingestion/batch/README.md)
+| [Data Transformation](../../02-data-transformation/batch/README.md)
+| Data Orchestration
+| [Data Consumption](../../04-data-consumption/batch/README.md) 

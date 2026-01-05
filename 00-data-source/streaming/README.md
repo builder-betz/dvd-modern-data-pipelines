@@ -15,8 +15,6 @@ This section covers setting up the Kafka topic in Confluent Cloud for the DVD cl
   
 </div>
 
-
-
 ## Data Contract
 
 The topic uses a structured data contract for both key and value schemas. 
@@ -94,8 +92,7 @@ Monitor the topic to verify events are being produced:
 5. Click `Stop` after verifying.
 
 
-
-
+---
 # Clickstream Dataset
 
 ## Overview
@@ -162,4 +159,15 @@ details of event type column:
 ```
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../00-data-pipelines/streaming/README.md) | [Next](../../01-data-ingestion/streaming/README.md)
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../00-data-pipelines/batch/README.md) 
+| [Streaming](../../00-data-pipelines/streaming/README.md) 
+| [Prev](../../00-data-pipelines/streaming/README.md) 
+| [Next](../../01-data-ingestion/streaming/README.md)
+
+🔗 **Streaming Pipeline Navigation**: 
+Data Source
+| [Data Ingestion](../../01-data-ingestion/streaming/README.md)
+| [Data Transformation](../../02-data-transformation/streaming/README.md)
+| [Data Consumption](../../04-data-consumption/streaming/README.md) 

@@ -103,7 +103,7 @@ def start_producer(csv_path="./csv/films.csv") -> None:
         while True:
             event_id = str(uuid.uuid4())
 
-            user_id = f"u_{random.randint(1, 10)}"
+            user_id = f"u_{random.randint(1, 15)}"
             now = datetime.now(timezone.utc)
 
             # Session reuse with timeout

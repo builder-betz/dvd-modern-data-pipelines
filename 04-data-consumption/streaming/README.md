@@ -43,4 +43,15 @@ The dashboard visualizes data from:
 9. Click on `Real-Time DVD Clicks Dashboard`.
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../02-data-transformation/streaming/README.md) | Next
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../batch/00-data-pipelines/batch/README.md) 
+| [Streaming](../../streaming/00-data-pipelines/batch/README.md) 
+| [Prev](../../02-data-transformation/streaming/README.md) 
+| Next
+
+🔗 **Streaming Pipeline Navigation**: 
+[Data Source](../../00-data-source/streaming/README.md)
+| [Data Ingestion](../../01-data-ingestion/streaming/README.md)
+| [Data Transformation](../../02-data-transformation/streaming/README.md)
+| Data Consumption

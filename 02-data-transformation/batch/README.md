@@ -61,4 +61,16 @@ After running `dbt run`, you can verify that tables have been created in Databri
 </div>
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../01-data-ingestion/batch/README.md) | [Next](../../03-data-orchestration/batch/README.md)
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../00-data-pipelines/batch/README.md) 
+| [Streaming](../../00-data-pipelines/streaming/README.md) 
+| [Prev](../../01-data-ingestion/batch/README.md) 
+| [Next](../../03-data-orchestration/batch/README.md)
+
+🔗 **Batch Pipeline Navigation**: 
+[Data Source](../../00-data-source/batch/README.md)
+| [Data Ingestion](../../01-data-ingestion/batch/README.md)
+| Data Transformation
+| [Data Orchestration](../../03-data-orchestration/batch/README.md)
+| [Data Consumption](../../04-data-consumption/batch/README.md) 
