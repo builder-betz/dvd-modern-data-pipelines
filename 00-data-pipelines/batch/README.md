@@ -191,7 +191,7 @@ For detailed setup instructions for each component, refer to the [Installation I
 
 <div align="center">
 
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnlrZ3A3MHpjaDRjdDNheGN3NTZ0MDdnNzRvemxoenV2MDc4Y3FnOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UdApgUd9hyXbMEexbL/giphy.gif">
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamthemt0MXR2MHVldDB6ZHhvdWIwaWhwc2ZxM3l6ZWUwa2NrcHZxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MqAZkNwr85xcieHZmp/giphy.gif">
 
 </div>
 
