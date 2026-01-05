@@ -67,7 +67,7 @@ token: your_access_token
    - Connection name: `<leave_as_default>`
    - Replicate source
    - Select your streams
-   - Set the sync mode for `film` to: `Full refresh | Overwrite`
+   - Set the sync mode for target tables to: `Full refresh | Overwrite`
 5. Select "Set up connection"
 6. Trigger a manual sync
 7. Verify that datasets have been synced in Databricks
@@ -76,16 +76,25 @@ token: your_access_token
 
 ![Airbyte Schema Selection](./airbyte-databricks/images/batch-airbyte-schema.png)
 --
-
-![Airbyte Streams Selection](./airbyte-databricks/images/batch-airbyte-streams.png)
---
-
 ![Airbyte Settings](./airbyte-databricks/images/batch-airbyte-settings.png)
 --
-
+![Airbyte Streams Selection](./airbyte-databricks/images/batch-airbyte-streams.png)
+--
 ![Databricks Tables](./airbyte-databricks/images/batch-databricks-tables.png)
 
 </div>
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../00-data-source/batch/README.md) | [Next](../../02-data-transformation/batch/README.md)
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../00-data-pipelines/batch/README.md) 
+| [Streaming](../../00-data-pipelines/streaming/README.md) 
+| [Prev](../../00-data-source/batch/README.md) 
+| [Next](../../02-data-transformation/batch/README.md)
+
+🔗 **Batch Pipeline Navigation**: 
+[Data Source](../../00-data-source/batch/README.md)
+| Data Ingestion
+| [Data Transformation](../../02-data-transformation/batch/README.md)
+| [Data Orchestration](../../03-data-orchestration/batch/README.md)
+| [Data Consumption](../../04-data-consumption/batch/README.md) 

@@ -5,16 +5,24 @@ PARTITION BY toYYYYMM(window_start)
 ORDER BY (window_start, film_id)
 AS
 SELECT
-    tumbleStart(toDateTime(clicks.event_ts), INTERVAL 1 MINUTE) AS window_start,
-    clicks.category_name as category,
-    clicks.film_id,
+    agg.window_start,
+    agg.category_name,
+    agg.film_id,
     ref.title,
-    count(*) AS click_count
-FROM dvd_clicks clicks
+    agg.click_count
+FROM
+(
+    SELECT
+        tumbleStart(toDateTime(event_ts), INTERVAL 1 MINUTE) AS window_start,
+        ref.category_name,
+        dvd_clicks.film_id,
+        count() AS click_count
+    FROM dvd_clicks
+    LEFT JOIN ref_dim_film ref ON dvd_clicks.film_id = ref.film_id
+    GROUP BY
+        window_start,
+        ref.category_name,
+        dvd_clicks.film_id
+) agg
 LEFT JOIN ref_dim_film ref
-    ON clicks.film_id = ref.film_id
-GROUP BY
-    window_start,
-    category,
-    clicks.film_id,
-    ref.title;
+    ON agg.film_id = ref.film_id;

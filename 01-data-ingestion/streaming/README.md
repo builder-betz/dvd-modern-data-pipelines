@@ -104,4 +104,15 @@ Load the reference film dimension from S3:
 </div>
 
 ---
-🔗 **Page Navigation**:  [Main](../../README.md) | [Batch](../../batch/00-data-pipelines/batch/README.md) | [Streaming](../../streaming/00-data-pipelines/batch/README.md) | [Prev](../../00-data-source/streaming/README.md) | [Next](../../02-data-transformation/streaming/README.md)
+🔗 **Page Navigation**: 
+[Main](../../README.md) 
+| [Batch](../../00-data-pipelines/batch/README.md) 
+| [Streaming](../../00-data-pipelines/streaming/README.md) 
+| [Prev](../../00-data-source/streaming/README.md) 
+| [Next](../../02-data-transformation/streaming/README.md)
+
+🔗 **Streaming Pipeline Navigation**: 
+[Data Source](../../00-data-source/streaming/README.md)
+| Data Ingestion
+| [Data Transformation](../../02-data-transformation/streaming/README.md)
+| [Data Consumption](../../04-data-consumption/streaming/README.md) 
