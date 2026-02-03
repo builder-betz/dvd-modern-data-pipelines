@@ -1,5 +1,7 @@
 select
     film_id,
     category_id,
-    last_update
+    max(last_update) as last_update
 from {{ source('dvd_rental', 'raw_dvd_film_category') }}
+group by film_id, category_id
+

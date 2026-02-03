@@ -43,5 +43,9 @@ models:
       +schema: gold
       +materialized: table
 
+snapshots:
+  analytics:
+    +target_schema: silver
+
 vars:
   dbt_date:time_zone: 'UTC'
