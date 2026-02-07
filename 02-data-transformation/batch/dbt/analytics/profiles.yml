@@ -1,7 +1,7 @@
 analytics:
-  target: dev
+  target: dev_databricks
   outputs:
-    dev:
+    dev_databricks:
       type: databricks
       catalog: analytics
       schema: ''
@@ -10,11 +10,17 @@ analytics:
       token: "{{ env_var('DATABRICKS_TOKEN') }}"
       threads: 2
 
-    preprod:
-      type: databricks
-      catalog: analytics
-      schema: ''
-      host: input_host
-      http_path: input_http_path
-      token: "{{ env_var('DATABRICKS_TOKEN') }}"
-      threads: 2
+    dev_snowflake:
+      type: snowflake
+      account: RKUJXSE-UR39224
+
+      # User/password auth
+      user: "{{ env_var('SNOWFLAKE_USERNAME') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: accountadmin
+      database: analytics
+      warehouse: compute_wh
+      schema: bronze
+      threads: 12
+      client_session_keep_alive: False

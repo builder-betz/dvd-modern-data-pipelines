@@ -2,8 +2,9 @@
     materialized='incremental',
     incremental_strategy='merge',
     unique_key='rental_id',
-    partition_by=['rental_year', 'rental_month']
+    **portable_partition(['rental_year','rental_month'])
 ) }}
+
 
 with max_target as (
 
@@ -40,7 +41,7 @@ select
     rental.return_date,
 
     case when rental.return_date is not null
-        then datediff(rental.return_date, rental.rental_date)
+        then {{ portable_datediff('rental.rental_date','rental.return_date') }} 
         else -1
     end as rental_duration_days,
 
