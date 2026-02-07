@@ -1,0 +1,81 @@
+ CREATE TABLE IF NOT EXISTS silver.dvd_customer_scd2_manual
+    customer_id,
+    first_name,
+    last_name,
+    email,
+    address_id,
+    active,
+    store_id,
+    create_date,
+    last_update
++   valid_to, valid_from, is_current, record_hash)
+
+
+-- Step 1.
+Get the latest version of bronze
+
+CREATE OR REPLACE VIEW LATEST_CUSTOMER_BRONZE AS 
+select *
+FROM (
+    SELECT 
+        customer_id,
+        first_name,
+        last_name,
+        email,
+        address_id,
+        active,
+        store_id,
+        create_date,
+        last_update,
+        MD5(concat_ws('||',
+            first_name,
+            last_name,
+            coalesce(email,''),
+            CAST(address_id AS STRING),
+            CAST(active AS STRING),
+            CAST(store_id AS STRING)
+            )
+        ) AS record_hash,
+        row_number() over (
+            partition by customer_id
+            order by last_update desc, airbyte_extracted_date desc
+        ) as rn
+    FROM BRONZE.RAW_DVD_CUSTOMER
+) where rn = 1;
+
+MERGE INTO SILVER.dvd_customer_scd2_manual AS TGT
+USING LATEST_CUSTOMER_BRONZE AS SRC
+    ON SRC.customer_id = TGT.customer_id
+    AND TGT.is_current = TRUE
+WHEN MATCHED AND SRC.record_hash <> TGT.record_hash
+    THEN
+        UPDATE SET
+        TGT.is_current = FALSE,
+        TGT.valid_to = SRC.last_update
+
+INSERT INTO SILVER.dvd_customer_scd2_manual
+SELECT
+        SRC.customer_id,
+        SRC.first_name,
+        SRC.last_name,
+        SRC.email,
+        SRC.address_id,
+        SRC.active,
+        SRC.store_id,
+        SRC.create_date,
+        SRC.last_update,
+        SRC.record_hash,
+        SRC.LAST_UPDATE AS valid_from,
+        CAST(NULL AS TIMESTAMP) AS valid_to,
+        TRUE AS is_current
+        
+
+FROM LATEST_CUSTOMER_BRONZE AS SRC
+LEFT JOIN silver.dvd_customer_scd2_manual AS TGT
+    ON SRC.customer_id = TGT.customer_id
+    AND TGT.is_current = TRUE
+WHERE TGT.CUSTOMER_ID IS NULL OR SRC.record_hash <> TGT.record_hash;
+
+CREATE OR REPLACE VIEW LATEST_SILVER AS
+SELECT * FROM SILVER.dvd_customer_scd2_manual
+WHERE is_current = TRUE;

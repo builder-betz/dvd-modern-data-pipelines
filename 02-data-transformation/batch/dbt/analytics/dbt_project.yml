@@ -38,7 +38,8 @@ models:
     silver:
       +schema: silver
       +materialized: table
-
+      __manual:
+        +enabled: false
     gold:
       +schema: gold
       +materialized: table

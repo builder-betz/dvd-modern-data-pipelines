@@ -13,7 +13,7 @@ with source_data as (
         inventory_id,
         cast(rental_date as date) as rental_date,
         cast(return_date as date) as return_date,
-        last_update,
+        cast(last_update as timestamp) as last_update,
         _airbyte_extracted_at
     from {{ source('dvd_rental', 'raw_dvd_rental') }}
 
@@ -52,6 +52,6 @@ select
     inventory_id,
     rental_date,
     return_date,
-    last_update
+    cast(last_update as timestamp) as last_update
 from ranked
 where rn = 1

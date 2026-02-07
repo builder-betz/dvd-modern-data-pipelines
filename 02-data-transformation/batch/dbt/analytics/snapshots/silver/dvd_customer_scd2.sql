@@ -35,7 +35,7 @@ select
     address_id,
     email,
     store_id,
-    last_update
+    cast(last_update as timestamp) as last_update
 from ranked
 where rn = 1
 
