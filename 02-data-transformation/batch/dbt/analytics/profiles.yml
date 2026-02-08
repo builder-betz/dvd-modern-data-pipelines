@@ -8,7 +8,7 @@ analytics:
       host: dbc-609476cb-a703.cloud.databricks.com
       http_path: /sql/1.0/warehouses/b1549b967a8f0dd1
       token: "{{ env_var('DATABRICKS_TOKEN') }}"
-      threads: 2
+      threads: 6
 
     dev_snowflake:
       type: snowflake
@@ -22,5 +22,5 @@ analytics:
       database: analytics
       warehouse: compute_wh
       schema: bronze
-      threads: 12
+      threads: 6
       client_session_keep_alive: False

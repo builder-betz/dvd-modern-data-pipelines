@@ -102,28 +102,32 @@ Implemented bronze → silver → gold data modelling on Databricks database.
 | raw_dvd_category (IA) | dvd_category (SCD1 current / dedup) |  |
 | raw_dvd_city (IA) | dvd_city (SCD1 current / dedup) |  |
 | raw_dvd_country (IA) | dvd_country (SCD1 current / dedup) |  |
-| raw_dvd_customer (IA) | dvd_customer_scd2 (SCD2 snapshot history)<br>dvd_customer (current view from SCD2) | dim_customer (incremental MERGE on customer_id) |
+| raw_dvd_customer (IA) | dvd_customer_scd2 (SCD2 snapshot history)<br>dvd_customer (current view from SCD2) | dim_customer |
 | raw_dvd_film (IA) | dvd_film (SCD1 current / dedup) | dim_film |
 | raw_dvd_film_category (IA) | dvd_film_category (bridge dedup (GROUP BY film_id, category_id)) |  |
 | raw_dvd_inventory (IA) | dvd_inventory (SCD1 current / dedup) | |
-| raw_dvd_rental (IA) | dvd_rental (SCD1 incremental MERGE on rental_id) | fact_rental (incremental MERGE on rental_id)<br>fact_rental_monthly<br> report_rentals<br>dim_date|
-| (count: 10) | (count: 11)| (count: 7) | 
+| raw_dvd_rental (IA) | dvd_rental (SCD1 incremental MERGE on rental_id) | fact_rental (incremental MERGE on rental_id)<br>fact_rental_monthly<br> report_rentals (incremental MERGE on rental_id) <br>dim_date|
+
+Counts: Bronze = 10 tables • Silver = 10 tables/snapshot/view • Gold = 8 tables/view
 
 **Notes:**
 - **Bronze (IA):** raw incremental append tables (may contain duplicates).
-- **Silver:**
-  - **SCD1 (Current-State / Dedup):** keep the latest record per primary key.
-  - **SCD2 (Customer):**
+  - These tables: may contain duplicates, preserve ingestion history, serve as immutable landing storage
+- **Silver:** transform raw data into structured, deduplicated entities.
+  - **SCD1 (Current-State / Dedup):** keep the latest record per business key.
+    - used for most reference entities
+  - **SCD2 (Customer History):**
     - `dvd_customer_scd2`: dbt snapshot history table (`dbt_valid_from`, `dbt_valid_to`)
     - `dvd_customer`: current view (latest version only)
   - **SCD1 Incremental (Rental):**
-    - `dvd_rental` is a **mutable transaction** (updated when a film is returned)
+    - `dvd_rental` is a **mutable transaction** 
+    - rentals update when films are returned
     - implemented as **incremental MERGE (upsert)** on `rental_id` to keep the latest current-state record
-  - **Bridge table (`dvd_film_category`):**
+  - **Bridge table (`dvd_film_category`):** resolves many-to-many relationships using grouped deduplication
     - Deduped using `GROUP BY (film_id, category_id)`
-- **Gold:**
-  - `fact_rental` is implemented as **incremental MERGE (upsert)** on `rental_id` to support updates (e.g. `return_date`) and idempotent reruns.
-  - `dim_customer` is implemented as **incremental MERGE (upsert)** on `customer_id` to avoid full refresh over time.
+- **Gold:** Gold models provide business-ready datasets optimized for analytics.
+  - `fact_rental`: Incremental fact table tracking rental lifecycle. It is implemented as **incremental MERGE (upsert)** on `rental_id` to support updates (e.g. `return_date`) and idempotent reruns.
+  - `dim_customer`:
 
 **Additional Notes:**
 
@@ -133,12 +137,10 @@ Implemented bronze → silver → gold data modelling on Databricks database.
   - Example (Delta Time Travel):
     - `SELECT * FROM silver.dvd_rental VERSION AS OF 5`
 - **dbt materializations (Databricks + Delta):**
-  - Most Silver “current-state” models are rebuilt using **`CREATE OR REPLACE`** semantics (full refresh).
-  - Mutable fact tables (e.g. `dvd_rental`) are maintained using **dbt incremental + MERGE** for idempotent upserts.
-  - Customer history is stored using **dbt snapshots (SCD2)** with `dbt_valid_from` / `dbt_valid_to`.
-  - Since targets are **Delta tables**, we can also use **Delta Time Travel** to query previous table versions when required (debugging/audit/rollback).
-  - Gold facts (e.g. `fact_rental`) can also be maintained using **incremental + MERGE** to avoid full refresh over time.
-  - Some Gold dimensions (e.g. `dim_customer`) are maintained using **incremental + MERGE** for scalability.
+    - Most Silver models rebuild using CREATE OR REPLACE
+    - Transaction tables use incremental MERGE
+    - SCD2 history managed via dbt snapshots
+    - Gold facts use incremental processing
 
 Breakdown of GOLD tables:
 
@@ -170,8 +172,9 @@ Data lineage is visualised in Dagster, showing the end-to-end flow from Airbyte 
 
 <div align="center">
 
-![Data Lineage via Dagster+](../../03-data-orchestration/batch/dagster/images/batch-gif-lineage-flow.gif)
 ![Data Lineage via DBT](../../02-data-transformation/batch/images/batch-dbt-lineage.png)
+![Data Lineage via Dagster+](../../03-data-orchestration/batch/dagster/images/batch-gif-lineage-flow.gif)
+Note: To be updated
 
 </div>
 
