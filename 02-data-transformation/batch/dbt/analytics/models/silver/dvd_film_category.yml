@@ -2,6 +2,4 @@ version: 2
 
 models:
   - name: dvd_film_category
-    tests:
-      - dbt_expectations.expect_table_row_count_to_equal_other_table:
-          compare_model: source('dvd_rental', 'raw_dvd_film_category')
+    

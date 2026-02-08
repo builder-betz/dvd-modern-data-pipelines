@@ -1,15 +1,37 @@
+with ranked as (
+    select
+        film_id,
+        title,
+        description,
+        release_year,
+        replacement_cost,
+        length,
+        rating,
+        rental_rate,
+        rental_duration,
+        special_features,
+        language_id,
+        fulltext,
+        last_update,
+        row_number() over (
+            partition by film_id
+            order by last_update desc, _airbyte_extracted_at desc
+        ) as rn
+    from {{ source('dvd_rental', 'raw_dvd_film') }}
+)
 select
     film_id,
     title,
     description,
-    cast(release_year as int),
+    cast(release_year as int) as release_year,
     replacement_cost,
-    cast(length as int),
+    cast(length as int) as length,
     rating,
     rental_rate,
-    cast(rental_duration as int),
+    cast(rental_duration as int) as rental_duration,
     special_features,
     language_id,
     fulltext,
-    last_update
-from {{ source('dvd_rental', 'raw_dvd_film') }}
+    cast(last_update as timestamp) as last_update
+from ranked
+where rn = 1

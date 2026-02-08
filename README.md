@@ -92,7 +92,7 @@ Detailed dashboards and chart breakdowns are available on the individual [batch]
 
 This project uses a **hybrid batch–streaming architecture** to support both historical and real-time analytics.
 
-- The [**batch pipeline**](./00-data-pipelines/batch/README.md#solution-architecture) is optimised for reliable historical analysis and dimensional modelling, using **Databricks** for scalable processing and a lakehouse serving layer.
+- The [**batch pipeline**](./00-data-pipelines/batch/README.md#solution-architecture) is optimised for reliable historical analysis and dimensional modelling, using **Databricks (or Snowflake) ** for scalable processing and a lakehouse serving layer.
 
 - The [**streaming pipeline**](./00-data-pipelines/streaming/README.md#solution-architecture) is optimised for low-latency, near-real-time insights, using **ClickHouse** to support sub-second analytical queries.
 
@@ -115,7 +115,7 @@ For detailed designs and implementation details, refer to the [Batch](./00-data-
 | **Event Producer** | - | <img src="https://cdn.simpleicons.org/python/3776AB" width="24" height="24"> Python (confluent-kafka >=2.3.0) |
 | **Data Source** | <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="24" height="24"> PostgreSQL <br/><img src="https://icon.icepanel.io/AWS/svg/Database/RDS.svg" width="24" height="24"> AWS RDS (setup to host PostgreSQL) | <img src="https://cdn.simpleicons.org/apachekafka/231F20" width="24" height="24"> Kafka <br/> <img src="https://support.confluent.io/hc/theming_assets/01HZPGT7NKH0B17XZT3YGXHGF0" width="24" height="24"> Confluent Cloud (manages and runs Kafja) <br/> <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="24" height="24"> Amazon S3 (reference data)  |
 | **Data Ingestion** | <img src="https://cdn.simpleicons.org/airbyte/615EFF" width="24" height="24"> Airbyte  <br/> <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="24" height="24"> AWS EC2 (setup to host Airbyte)| <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickPipes (ClickHouse Cloud) |
-| **Data Warehouse** | <img src="https://cdn.simpleicons.org/databricks/FF3621" width="24" height="24"> Databricks <br/> <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="24" height="24"> Amazon S3 (external storage / reference data) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Cloud |
+| **Data Warehouse** | <img src="https://cdn.simpleicons.org/databricks/FF3621" width="24" height="24"> Databricks <br/> <img src="https://cdn.simpleicons.org/snowflake" width="24" height="24"> Snowflake <br/> <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="24" height="24"> Amazon S3 (external storage / reference data) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Cloud |
 | **Data Transformation** | <img src="https://www.iconarchive.com/download/i149529/simpleicons-team/simple/dbt.512.png" width="24" height="24" alt="dbt"> dbt (dbt-core 1.10.4,<br/>dbt-databricks 1.10.4) | <img src="https://cdn.simpleicons.org/clickhouse/FFCC00" width="24" height="24"> ClickHouse Materialized Views |
 | **Data Orchestration** | <img src="https://dagster-website.vercel.app/images/brand/logos/dagster-primary-mark.png" width="24" height="24" alt="Dagster"> Dagster+ (Dagster 1.12.7) | - |
 | **Data Visualization** | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset | <img src="https://cdn.simpleicons.org/apachesuperset/FF6B35" width="24" height="24"> Preset |
@@ -171,13 +171,26 @@ This project includes two focused end-to-end demos: **[batch pipeline](./00-data
 
 ## Technical Debt & Improvement Opportunities
 
-- **Data Freshness & Loads**: Align snapshot frequencies with refresh schedules and introduce CDC or incremental loading where appropriate.
+- **Data Freshness & Loads**: Align snapshot frequencies with refresh schedules and introduce CDC.
 
 - **Reliability & Quality**: Include further testing, logging, and monitoring especially for streaming pipelines and ingestion tools.
 
 - **Deployment & Automation**: Introduce CI/CD, Terraform and containerised execution (for example, ECS for Kafka producers).
 
 - **Reference Data Management**: Improve reference data sharing between lakehouse and real-time analytics engines.
+
+- **Storage Portability & Landing Layer**: Introduce an object storage landing zone (e.g., S3) before Bronze to decouple ingestion from warehouse storage, enabling easier portability between Databricks and Snowflake, replay/backfill workflows, and stronger raw data retention.
+
+[🔝 Return to TOC](#table-of-contents)
+
+## Recent Enhancements
+
+**Updated:** 2026-02-09
+
+- Added SCD2 customer history via dbt snapshots  
+- Implemented incremental MERGE loading for transactional facts  
+- Enabled and tested warehouse-portable dbt models (Databricks ↔ Snowflake)  
+- Partitioned large tables for scalability  
 
 [🔝 Return to TOC](#table-of-contents)
 

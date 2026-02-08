@@ -1,7 +1,9 @@
+{{ config(materialized='view') }}
+
 select
-    {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_key,
+    customer_key,
     customer_id,
-    concat(coalesce(first_name,''), ' ', coalesce(last_name,'')) as full_name
---   first_name,
---   last_name,  
-from {{ ref('dvd_customer') }} 
+    full_name,
+    address_id
+from {{ ref('dim_customer_scd2') }}
+where valid_to is null

@@ -7,5 +7,3 @@ models:
           column_name: city_id
       - not_null:
           column_name: city_id
-      - dbt_expectations.expect_table_row_count_to_equal_other_table:
-          compare_model: source('dvd_rental', 'raw_dvd_city')

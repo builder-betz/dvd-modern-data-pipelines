@@ -1,20 +1,26 @@
 analytics:
-  target: dev
+  target: dev_databricks
   outputs:
-    dev:
+    dev_databricks:
       type: databricks
       catalog: analytics
       schema: ''
       host: dbc-609476cb-a703.cloud.databricks.com
       http_path: /sql/1.0/warehouses/b1549b967a8f0dd1
       token: "{{ env_var('DATABRICKS_TOKEN') }}"
-      threads: 2
+      threads: 6
 
-    preprod:
-      type: databricks
-      catalog: analytics
-      schema: ''
-      host: input_host
-      http_path: input_http_path
-      token: "{{ env_var('DATABRICKS_TOKEN') }}"
-      threads: 2
+    dev_snowflake:
+      type: snowflake
+      account: RKUJXSE-UR39224
+
+      # User/password auth
+      user: "{{ env_var('SNOWFLAKE_USERNAME') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: accountadmin
+      database: analytics
+      warehouse: compute_wh
+      schema: bronze
+      threads: 6
+      client_session_keep_alive: False
