@@ -20,7 +20,6 @@ with max_target as (
 
 ),
 
-
 rental as (
     select *
     from {{ ref('dvd_rental') }}

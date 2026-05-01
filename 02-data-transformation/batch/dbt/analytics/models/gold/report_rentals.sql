@@ -16,9 +16,7 @@ with cutoff as (
     {% else %}
         select cast('1900-01-01' as timestamp) as cutoff_ts
     {% endif %}
-
 ),
-
 
 fact_rental as (
     select *
