@@ -10,7 +10,7 @@ with max_target as (
 
     {% if is_incremental() %}
         select coalesce(
-            dateadd(day, -2, max(last_update)),
+            max(last_update),
             cast('1900-01-01' as timestamp)
         ) as cutoff_last_update
         from {{ this }}
@@ -19,6 +19,7 @@ with max_target as (
     {% endif %}
 
 ),
+
 
 rental as (
     select *

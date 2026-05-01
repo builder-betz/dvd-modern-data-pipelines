@@ -37,7 +37,7 @@ FROM (
         active,
         create_date,
         last_update,
-        _airbyte_extracted_at,
+        _ingest_ts,
 
         -- tracking attributes (exclude PK)
         md5(
@@ -53,7 +53,7 @@ FROM (
 
         row_number() over (
             partition by customer_id
-            order by last_update desc, _airbyte_extracted_at desc
+            order by last_update desc, _ingest_ts desc
         ) as rn
     FROM bronze.raw_dvd_customer
 ) t

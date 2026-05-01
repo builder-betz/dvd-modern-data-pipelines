@@ -7,8 +7,8 @@ class CustomDagsterAirbyteTranslator(DagsterAirbyteTranslator):
         default_spec = super().get_asset_spec(props)
         return default_spec.replace_attributes(
             key=dg.AssetKey(["dvd_rental", props.table_name]),
-            group_name="airbyte",
-            automation_condition=dg.AutomationCondition.on_cron(cron_schedule="* * * * *")
+            group_name="01_airbyte_src_to_landing",
+            #automation_condition=dg.AutomationCondition.on_cron(cron_schedule="* * * * *")
         )
 
 # Connect to your OSS Airbyte instance

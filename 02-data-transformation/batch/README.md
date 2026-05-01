@@ -32,7 +32,7 @@ dbt debug
 
 ## Running Instructions
 
-1. Materialize new model/s using commands:
+Available Commands:
 ```
 dbt run
 dbt run --select <model_name>
@@ -41,6 +41,13 @@ dbt build (run and test)
 dbt deps && dbt run && dbt test
 dbt source freshness
 ```
+
+1. Materialize new model/s using commands:
+A. Initial run (full refresh)
+dbt clean && dbt deps && dbt run --full-refresh
+
+B. Daily run (using the incremental run)
+dbt build
 
 2. Generate Lineage
 ```

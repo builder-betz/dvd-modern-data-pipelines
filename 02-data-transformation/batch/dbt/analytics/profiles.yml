@@ -1,5 +1,5 @@
 analytics:
-  target: dev_databricks
+  target: dev_snowflake
   outputs:
     dev_databricks:
       type: databricks

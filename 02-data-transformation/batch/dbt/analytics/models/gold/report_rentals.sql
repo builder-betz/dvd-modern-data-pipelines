@@ -6,16 +6,19 @@
 ) }}
 
 with cutoff as (
+
     {% if is_incremental() %}
         select coalesce(
-            dateadd(day, -2, max(last_update)),
+            max(last_update),
             cast('1900-01-01' as timestamp)
         ) as cutoff_ts
         from {{ this }}
     {% else %}
         select cast('1900-01-01' as timestamp) as cutoff_ts
     {% endif %}
+
 ),
+
 
 fact_rental as (
     select *

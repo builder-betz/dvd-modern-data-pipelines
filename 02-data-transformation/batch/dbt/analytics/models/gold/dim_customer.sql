@@ -6,4 +6,4 @@ select
     full_name,
     address_id
 from {{ ref('dim_customer_scd2') }}
-where valid_to is null
+where is_current = true
