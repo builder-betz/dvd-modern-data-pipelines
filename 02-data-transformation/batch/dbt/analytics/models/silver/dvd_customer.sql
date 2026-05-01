@@ -11,4 +11,4 @@ select
     create_date,
     last_update
 from {{ ref('dvd_customer_scd2') }}
-where dbt_valid_to is null
+where is_current = true

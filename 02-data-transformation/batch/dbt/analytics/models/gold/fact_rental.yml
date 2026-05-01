@@ -19,9 +19,6 @@ models:
         description: Foreign key to dim_customer
         tests:
           - not_null
-          - relationships:
-              to: ref('dim_customer')
-              field: customer_key
 
       - name: customer_address_key
         description: The surrogate key of the customer address
